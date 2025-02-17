@@ -380,7 +380,7 @@ function M.lsp_calibrate_bookmarks(bufnr, async, bookmark_file)
 			-- this will delete all the lsp bookmarks.
 			helper({})
 		else
-			local params = vim.lsp.util.make_position_params()
+			local params = vim.lsp.util.make_position_params(nil, "utf-16")
 			vim.lsp.buf_request_all(bufnr, "textDocument/documentSymbol", params, function(result)
 				-- When result arrive, we have moved to a new folder, so do nothing.
 				--bookmark_file is nil at first time.
